@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import ActorGrid from '../components/actors/ActorGrid';
 import MainPageLayout from '../components/MainPageLayout';
+import ShowGrid from '../components/show/ShowGrid';
 import { apiGet } from '../Misc/Config';
 
 const Home = () => {
@@ -38,15 +40,11 @@ const Home = () => {
     }
 
     if (results && results.length > 0) {
-      // eslint-disable-next-line arrow-body-style
-      return results[0].show
-        ? // eslint-disable-next-line arrow-body-style
-          results.map(item => <div key={item.show.id}>{item.show.name}</div>)
-        : // eslint-disable-next-line arrow-body-style
-          results.map(item => (
-            // eslint-disable-next-line arrow-body-style
-            <div key={item.person.id}>{item.person.name}</div>
-          ));
+      return results[0].show ? (
+        <ShowGrid data={results} />
+      ) : (
+        <ActorGrid data={results} />
+      );
     }
 
     return null;
