@@ -5,6 +5,7 @@ import IMAGE_NOT_FOUND from '../../Images/not-found.png';
 import { FlexGrid } from '../styled';
 
 const ShowGrid = ({ data }) => {
+  console.log('data: ', data[0].show.image.medium);
   return (
     <FlexGrid>
       {data.map(({ show }) => (
@@ -12,7 +13,8 @@ const ShowGrid = ({ data }) => {
           key={show.id}
           id={show.id}
           name={show.name}
-          images={show.images ? show.images.medium : IMAGE_NOT_FOUND}
+          images={show.image ? show.image.medium : IMAGE_NOT_FOUND}
+          // images={show.url}
           summary={show.summary}
         />
       ))}

@@ -7,7 +7,7 @@ import { FlexGrid } from '../styled';
 const ActorGrid = ({ data }) => {
   return (
     <FlexGrid>
-      {data.map(person => (
+      {data.map(({ person }) => (
         <ActorsCard
           key={person.id}
           name={person.name}

@@ -10,15 +10,14 @@ const Home = () => {
   const [searchOption, setSearchOption] = useState('shows');
 
   const isShowSearch = searchOption === 'shows';
-
-  const onInputChange = ev => {
-    setInput(ev.target.value);
-  };
-
   const onSearch = () => {
     apiGet(`/search/${searchOption}?q=${input}`).then(result => {
       setResults(result);
     });
+  };
+
+  const onInputChange = ev => {
+    setInput(ev.target.value);
   };
 
   const onKeyDown = ev => {
@@ -35,7 +34,7 @@ const Home = () => {
 
   const renderResults = () => {
     if (results && results.length === 0) {
-      return <div>no result</div>;
+      return <div>No result</div>;
     }
 
     if (results && results.length > 0) {
@@ -84,6 +83,7 @@ const Home = () => {
       <button type="button" onClick={onSearch}>
         Search
       </button>
+
       {renderResults()}
     </MainPageLayout>
   );

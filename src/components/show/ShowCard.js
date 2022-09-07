@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyledShowCard } from './ShowCard.styled';
 
-const ShowCard = ({ id, image, name, summary }) => {
+const ShowCard = ({ id, images, name, summary }) => {
   const summaryAsText = summary
     ? `${summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '')}...`
     : 'No description';
@@ -10,7 +10,7 @@ const ShowCard = ({ id, image, name, summary }) => {
   return (
     <StyledShowCard>
       <div className="img-wrapper">
-        <img src={image} alt="show" />
+        <img src={images} alt="show" />
       </div>
 
       <h1>{name}</h1>
