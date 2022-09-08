@@ -16,10 +16,8 @@ const ShowGrid = ({ data }) => {
         const onStarClick = () => {
           if (isStarred) {
             dispatchStarred({ type: 'REMOVE', showId: show.id });
-            console.log('showid:', show.id);
           } else {
             dispatchStarred({ type: 'ADD', showId: show.id });
-            console.log('showid:', show.id);
           }
         };
 
