@@ -12,16 +12,13 @@ const ShowGrid = ({ data }) => {
   return (
     <FlexGrid>
       {data.map(({ show }) => {
-        const onStarClick = useCallback(
-          (showId, isStarred) => {
-            if (isStarred) {
-              dispatchStarred({ type: 'REMOVE', showId });
-            } else {
-              dispatchStarred({ type: 'ADD', showId });
-            }
-          },
-          [dispatchStarred]
-        );
+        const onStarClick = useCallback((showId, isStarred) => {
+          if (isStarred) {
+            dispatchStarred({ type: 'REMOVE', showId });
+          } else {
+            dispatchStarred({ type: 'ADD', showId });
+          }
+        }, []);
 
         return (
           <ShowCard
